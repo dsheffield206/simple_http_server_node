@@ -10,7 +10,8 @@ function send404Response(response){
 
 // Handle a user request
 function onRequest(request, response){
-  if(request.method == 'GET' && request.url == '/') {
+  console.log(request.url);
+  if(request.method == 'GET' && request.url == '/' || request.url == '/index.html') {
     response.writeHead(200, {'Context-Type': 'text/plain'});
     fs.createReadStream('./index.html').pipe(response);
   } else {
